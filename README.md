@@ -65,3 +65,9 @@ During this lab you will:
 - When debugging, print tokens, scores, or intermediate choices.
 - Ask an AI assistant to help create edge case posts or unusual wording.
 - Try examples that mislead or confuse your model. Failure cases teach you the most.
+
+---
+
+## Instructor Summary
+
+The big idea here is that a classifier is only as good as the signal you give it — word lists, training data, and scoring logic all bake in assumptions, and those assumptions show up in every prediction. Students tend to get tripped up most on `score_text`, where they have to figure out how to turn per-word scores into a single label without writing thresholds that fall apart on short or weird inputs. AI was actually pretty helpful for brainstorming edge cases (slang, sarcasm, emoji soup) and for demystifying what `CountVectorizer` is doing under the hood — but it went sideways when students asked it to fix a wrong prediction, since it would patch the one example instead of helping them think about what was missing from the data. A good nudge when someone is stuck: have them print out the token list and score for a misclassified post, then ask, "What would the model need to see in the data for this to come out differently?"
